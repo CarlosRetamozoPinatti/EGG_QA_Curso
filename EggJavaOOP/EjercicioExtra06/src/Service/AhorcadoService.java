@@ -69,7 +69,7 @@ public class AhorcadoService {
     public void newGame(){
         String letra;
         Ahorcado game = crearJuego();
-        System.out.println(" Aca va una pista, es una palabra de " + game.getLongitud() + " letras.");
+        System.out.println(" Aca va una pista, es una palabra de " + game.getPalabraSecreta().length + " letras.");
         System.out.println();
         System.out.println(Arrays.toString(game.getPalabraOculta()));
         do {
