@@ -22,7 +22,7 @@ public class AhorcadoService {
             contador++;
             palabraSecreta[i] = palabra.substring(contador - 1, contador);
             a1.setPalabraSecreta(palabraSecreta);
-            palabraOculta[i] = "?";
+            palabraOculta[i] = "_";
             a1.setPalabraOculta(palabraOculta);
         }
         //TERMINAMOS DE SETEAR LA PALABRA SECRETA , LA OCULTAMOS Y SETEAMOS LO QUE FALTA
@@ -57,7 +57,7 @@ public class AhorcadoService {
     public void actualizarPalabraSecreta(String letra, Ahorcado a1) {
         String[] palabraOculta = a1.getPalabraOculta();
         for (int i = 0; i < a1.getPalabraSecreta().length; i++) {
-            if (a1.getPalabraOculta()[i].equals("?") && a1.getPalabraSecreta()[i].charAt(0) == letra.charAt(0)) {
+            if (a1.getPalabraOculta()[i].equals("_") && a1.getPalabraSecreta()[i].charAt(0) == letra.charAt(0)) {
                 palabraOculta[i] = letra ;
                 a1.setPalabraOculta(palabraOculta);
             }
@@ -65,6 +65,78 @@ public class AhorcadoService {
         System.out.print("Palabra oculta actualizada: ");
         System.out.println(Arrays.toString(a1.getPalabraOculta()));
     }
+    public static void dibujarTipito(Ahorcado a1){
+        int intentos = a1.getJugadaMaxima();
+        switch (intentos) {
+            case 5 -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("___|___");
+            }
+            case 4 -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   |           |  ");
+                System.out.println("   |           | ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("   | ");
+                System.out.println("___|___");
+            }
+            case 3 -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   |           |  ");
+                System.out.println("   |           | ");
+                System.out.println("   |             |");
+                System.out.println("   |             |");
+                System.out.println("   |   ");
+                System.out.println("___|___");
+            }
+            case 2 -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   |           |  ");
+                System.out.println("   |           | ");
+                System.out.println("   |         |   |");
+                System.out.println("   |         |   |");
+                System.out.println("   |   ");
+                System.out.println("___|___");
+            }
+            case 1 -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   |           | --- ");
+                System.out.println("   |           | ");
+                System.out.println("   |         |   |");
+                System.out.println("   |         |   |");
+                System.out.println("   |   ");
+                System.out.println("___|___");
+            }
+            default -> {
+                System.out.println("   ____________");
+                System.out.println("   |           |");
+                System.out.println("   |           O  ");
+                System.out.println("   |       --- | --- ");
+                System.out.println("   |           | ");
+                System.out.println("   |         |   |");
+                System.out.println("   |         |   |");
+                System.out.println("   |   ");
+                System.out.println("___|___");
+            }
+        }
+    }
+
 
     public void newGame(){
         String letra;
@@ -81,6 +153,7 @@ public class AhorcadoService {
             } else {
                 System.out.println("La letra no se encuentra en la palabra");
                 reducirJugada(game);
+                dibujarTipito(game);
             }
         } while (!palabraCompleta(game) && game.getJugadaMaxima() != 0 );
     }
