@@ -1,9 +1,5 @@
 package Service;
 
-import Entity.Pelicula;
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class MenuService {
