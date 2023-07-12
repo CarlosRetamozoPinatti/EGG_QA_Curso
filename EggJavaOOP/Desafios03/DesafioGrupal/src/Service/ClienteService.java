@@ -29,7 +29,7 @@ public class ClienteService {
             cliente.setObjetivo(leer.nextLine());
         } catch (InputMismatchException e) {
             System.out.println("Error: Entrada no válida. Por favor, ingrese un valor numérico válido y/o use una coma como separador decimal.");
-            // Aquí puedes manejar el error de entrada no válida según tus necesidades
+            // Con esto evitamos que el chabon ponga cualquier cosa.
         }
 
         clientes.add(cliente);
