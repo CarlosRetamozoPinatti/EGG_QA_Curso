@@ -30,24 +30,24 @@ public class AlumnoService {
         } while (leer.nextLine().equalsIgnoreCase("s"));
     }
 
+
     public void notaFinal() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.print("Ingrese el nombre del alumno: ");
         String nombreAlumno = leer.nextLine();
 
-        for (Alumno alumno : listaAlumnos) {
-            if (alumno.getNombre().equalsIgnoreCase(nombreAlumno)) {
-                List<Integer> notas = alumno.getNotas();
-                if (!notas.isEmpty()) {
-                    double promedio = notas.stream().mapToInt(Integer::intValue).average().orElse(0);
-                    System.out.println("La nota final de " + nombreAlumno + " es: " + promedio);
-                    break;
-                } else {
-                    System.out.println("El alumno " + nombreAlumno + " no tiene notas registradas.");
-                }
-            }
-        }
-        System.out.println("El alumno " + nombreAlumno + " no está en la lista.");
+        listaAlumnos.stream()
+                .filter(alumno -> alumno.getNombre().equalsIgnoreCase(nombreAlumno))
+                .findFirst()
+                .ifPresentOrElse(alumno -> {
+                    List<Integer> notas = alumno.getNotas();
+                    if (!notas.isEmpty()) {
+                        double promedio = notas.stream().mapToInt(Integer::intValue).average().orElse(0);
+                        System.out.println("La nota final de " + nombreAlumno + " es: " + promedio);
+                    } else {
+                        System.out.println("El alumno " + nombreAlumno + " no tiene notas registradas.");
+                    }
+                }, () -> System.out.println("El alumno " + nombreAlumno + " no está en la lista."));
     }
     public void modificarNota() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
