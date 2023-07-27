@@ -18,7 +18,6 @@ public class PaisService {
         do {
             System.out.print("Ingrese el nombre del país a agregar: ");
             String nombre = leer.next().trim().toLowerCase();
-
             if (!nombre.isEmpty()) {
                 Pais pais = new Pais(nombre);
                 if (!existePais(pais)) {
@@ -30,11 +29,9 @@ public class PaisService {
             } else {
                 System.out.println("El nombre del país no puede estar vacío.");
             }
-
             System.out.print("¿Desea agregar otro país? (s/n): ");
             continuar = leer.next().trim();
         } while (continuar.equalsIgnoreCase("s"));
-
         System.out.println("Adios!!");
     }
 
@@ -65,7 +62,6 @@ public class PaisService {
     public void eliminarPais() {
         System.out.print("Ingrese el nombre del país a eliminar: ");
         String pais = leer.next().trim().toLowerCase();
-
         if (!pais.isEmpty()) {
             Pais paisEliminar = new Pais(pais);
             if (listaPaises.remove(paisEliminar)) {

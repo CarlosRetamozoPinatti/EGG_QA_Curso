@@ -9,34 +9,26 @@ public class Main {
             while (true) {
                 System.out.print("Ingrese un país (o escriba 'salir' para finalizar): ");
                 String input = scanner.nextLine();
-
                 if (input.equalsIgnoreCase("salir")) {
                     break;
                 }
-
                 if (input.isEmpty()) {
                     throw new IllegalArgumentException("El país no puede estar vacío.");
                 }
-
                 if (!Character.isUpperCase(input.charAt(0))) {
                     throw new IllegalArgumentException("El país debe empezar con mayúscula.");
                 }
-
                 if (!countriesSet.add(input)) {
                     System.out.println("El país ya ha sido ingresado anteriormente.");
                 }
             }
-
             System.out.println("\nPaíses ingresados:");
             displayCountries(countriesSet);
-
             TreeSet<String> sortedCountries = new TreeSet<>(countriesSet);
             System.out.println("\nPaíses ordenados alfabéticamente:");
             displayCountries(sortedCountries);
-
             System.out.print("\nIngrese el país que desea eliminar: ");
             String countryToDelete = scanner.nextLine();
-
             if (countriesSet.contains(countryToDelete)) {
                 countriesSet.remove(countryToDelete);
                 System.out.println("\nPaíses después de eliminar " + countryToDelete + ":");

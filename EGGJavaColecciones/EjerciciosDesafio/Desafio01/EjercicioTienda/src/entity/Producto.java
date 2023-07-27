@@ -1,6 +1,5 @@
 package entity;
 
-
 import java.util.Scanner;
 
 public class Producto {
@@ -35,6 +34,7 @@ public class Producto {
     public void setCantidadEnInventario(int cantidad) {
         this.inventario = cantidad;
     }
+
     public void venta() {
         if (inventario > 0) {
             Scanner leer = new Scanner(System.in);
@@ -53,6 +53,7 @@ public class Producto {
             System.out.println("No hay inventario disponible para este producto.");
         }
     }
+
     public void reposicion() {
         Scanner scanner = new Scanner(System.in);
 

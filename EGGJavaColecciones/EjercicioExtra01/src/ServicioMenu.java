@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class ServicioMenu {
@@ -15,6 +13,7 @@ public class ServicioMenu {
                 4 - Ver el promedio de todos los numeros.                
                 0 - Salir""");
     }
+
     public void mostrarMenu(){
         int opcion;
         do {

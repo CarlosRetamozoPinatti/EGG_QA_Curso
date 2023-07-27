@@ -30,12 +30,10 @@ public class AlumnoService {
         } while (leer.nextLine().equalsIgnoreCase("s"));
     }
 
-
     public void notaFinal() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.print("Ingrese el nombre del alumno: ");
         String nombreAlumno = leer.nextLine();
-
         listaAlumnos.stream()
                 .filter(alumno -> alumno.getNombre().equalsIgnoreCase(nombreAlumno))
                 .findFirst()
@@ -49,22 +47,20 @@ public class AlumnoService {
                     }
                 }, () -> System.out.println("El alumno " + nombreAlumno + " no está en la lista."));
     }
+
     public void modificarNota() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         do {
             System.out.print("Ingrese el nombre del alumno: ");
             String nombreAlumno = leer.nextLine();
-
             boolean alumnoEncontrado = false;
             for (Alumno alumno : listaAlumnos) {
                 if (alumno.getNombre().equalsIgnoreCase(nombreAlumno)) {
                     System.out.print("Ingrese el número de la nota a modificar (1, 2 o 3): ");
                     int numeroNota = Integer.parseInt(leer.nextLine());
-
                     if (numeroNota >= 1 && numeroNota <= 3) {
                         System.out.print("Ingrese la nueva nota para la nota " + numeroNota + ": ");
                         int nuevaNota = Integer.parseInt(leer.nextLine());
-
                         List<Integer> notas = alumno.getNotas();
                         notas.set(numeroNota - 1, nuevaNota); // Resto 1 porque los índices comienzan en 0.
                         System.out.println("La nota " + numeroNota + " del alumno " + nombreAlumno + " ha sido modificada.");
@@ -81,6 +77,7 @@ public class AlumnoService {
             System.out.print("¿Desea modificar otra nota? (s/n): ");
         } while (leer.nextLine().equalsIgnoreCase("s"));
     }
+
     public void alumnosYNotas() {
         if (listaAlumnos.isEmpty()) {
             System.out.println("No hay alumnos en la lista.");
@@ -91,6 +88,7 @@ public class AlumnoService {
             }
         }
     }
+
     public void alumnosConNotaFinal() {
         if (listaAlumnos.isEmpty()) {
             System.out.println("No hay alumnos en la lista.");

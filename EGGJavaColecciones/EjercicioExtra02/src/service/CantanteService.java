@@ -18,16 +18,13 @@ public class CantanteService {
         while (true) {
             System.out.println("Ingrese el nombre del cantante (o 'salir' para detenerse): ");
             String nombre = leer.nextLine().trim();
-
             if (nombre.equalsIgnoreCase("salir")) {
                 break;
             }
-
             if (cantanteYaExiste(nombre)) {
                 System.out.println("El cantante ya existe en la lista.");
                 continue;
             }
-
             System.out.println("Ingrese el mejor disco del cantante: ");
             String mejorDisco = leer.nextLine().trim();
             if (nombre.isEmpty() || mejorDisco.isEmpty()) {
@@ -75,18 +72,14 @@ public class CantanteService {
         if (cantanteModificar != null) {
             System.out.println("Ingrese el nuevo nombre del cantante: ");
             String nuevoNombre = leer.nextLine().trim();
-
             if (!nuevoNombre.isEmpty()) {
                 cantanteModificar.setNombre(nuevoNombre);
             }
-
             System.out.println("Ingrese el nuevo mejor disco del cantante: ");
             String nuevoMejorDisco = leer.nextLine().trim();
-
             if (!nuevoMejorDisco.isEmpty()) {
                 cantanteModificar.setMejorDisco(nuevoMejorDisco);
             }
-
             System.out.println("Cantante modificado con éxito!!");
         } else {
             System.out.println("No existe ese cantante en la lista.");

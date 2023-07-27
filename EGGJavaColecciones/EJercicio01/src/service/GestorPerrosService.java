@@ -1,12 +1,12 @@
 package service;
 
 import entity.GestorPerros;
-
 import java.util.Scanner;
 
 public class GestorPerrosService {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     GestorPerros gestorPerros = new GestorPerros();
+
     public void mostrarOpciones(){
         System.out.println("""
                 Que desea hacer?
@@ -14,6 +14,7 @@ public class GestorPerrosService {
                 2 - Mostrar todas las razas.
                 0 - Salir""");
     }
+
     public void mostrarMenu(){
         int opcion;
         do {

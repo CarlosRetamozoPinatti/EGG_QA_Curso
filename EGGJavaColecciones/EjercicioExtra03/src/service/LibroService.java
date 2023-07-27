@@ -18,7 +18,6 @@ public class LibroService {
     public void agregarLibros() {
         System.out.println("A continuación, ingrese los datos de los libros.");
         boolean continuar = true;
-
         while (continuar) {
             System.out.println("Ingrese el título del libro: ");
             String titulo = leer.nextLine().trim();
@@ -46,7 +45,6 @@ public class LibroService {
             Libro libro = new Libro(titulo, autor, numEjemplares);
             libros.add(libro);
             System.out.println("Libro agregado exitosamente!!");
-
             System.out.println("¿Desea agregar otro libro? (s/n)");
             String respuesta = leer.nextLine().trim().toLowerCase();
             while (!respuesta.equals("s") && !respuesta.equals("n")) {
@@ -73,11 +71,9 @@ public class LibroService {
         } else {
             System.out.println("Ingrese el título del libro a buscar: ");
             String titulo = leer.next();
-
             Optional<Libro> libroEncontrado = libros.stream()
                     .filter(libro -> libro.getTitulo().equalsIgnoreCase(titulo))
                     .findFirst();
-
             if (libroEncontrado.isPresent()) {
                 System.out.println("Libro encontrado!!");
                 System.out.println(libroEncontrado.get());
@@ -93,11 +89,9 @@ public class LibroService {
         } else {
             System.out.println("Ingrese el título del libro a prestar: ");
             String titulo = leer.next();
-
             Optional<Libro> libroEncontrado = libros.stream()
                     .filter(libro -> libro.getTitulo().equalsIgnoreCase(titulo))
                     .findFirst();
-
             if (libroEncontrado.isPresent()) {
                 if (libroEncontrado.get().prestamo()) {
                     System.out.println("Libro prestado exitosamente!!");
@@ -116,11 +110,9 @@ public class LibroService {
         } else {
             System.out.println("Ingrese el título del libro a devolver: ");
             String titulo = leer.next();
-
             Optional<Libro> libroEncontrado = libros.stream()
                     .filter(libro -> libro.getTitulo().equalsIgnoreCase(titulo))
                     .findFirst();
-
             if (libroEncontrado.isPresent()) {
                 if (libroEncontrado.get().devolucion()) {
                     System.out.println("Libro devuelto exitosamente!!");

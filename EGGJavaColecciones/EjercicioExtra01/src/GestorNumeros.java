@@ -13,7 +13,6 @@ class GestorNumeros {
     public void leerNumeros() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese valores numéricos enteros (ingrese -99 para terminar):");
-
         try {
             while (true) {
                 int input = scanner.nextInt();

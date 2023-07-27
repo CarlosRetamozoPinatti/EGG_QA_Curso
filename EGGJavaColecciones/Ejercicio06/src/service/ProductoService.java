@@ -32,7 +32,6 @@ public class ProductoService {
                 productos.add(producto);
                 System.out.println("Producto agregado correctamente.");
             }
-
             System.out.println("¿Desea agregar otro producto? (s/n)");
         } while (leer.next().equalsIgnoreCase("s"));
     }
@@ -54,11 +53,9 @@ public class ProductoService {
                     break;
                 }
             }
-
             if (!encontrado) {
                 System.out.println("El producto no existe en la tienda.");
             }
-
             System.out.println("¿Desea modificar el precio de otro producto? (s/n)");
         } while (leer.next().equalsIgnoreCase("s"));
     }
@@ -78,11 +75,9 @@ public class ProductoService {
                     break;
                 }
             }
-
             if (!encontrado) {
                 System.out.println("El producto no existe en la tienda.");
             }
-
             System.out.println("¿Desea eliminar otro producto? (s/n)");
         } while (leer.next().equalsIgnoreCase("s"));
     }

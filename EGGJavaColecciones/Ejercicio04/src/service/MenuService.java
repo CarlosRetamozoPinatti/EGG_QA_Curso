@@ -18,6 +18,7 @@ public class MenuService {
                 7 - Mostrar peliculas de un genero determinado.
                 0 - Salir""");
     }
+
     public void mostrarMenu(){
         int opcion;
         do {

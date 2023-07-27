@@ -1,7 +1,6 @@
 package service;
 
 import entity.Pelicula;
-
 import java.util.*;
 
 public class PeliculaService {
@@ -21,12 +20,10 @@ public class PeliculaService {
             String genero = leer.next();
             System.out.print("Ingrese la duración de la película EN MINUTOS: ");
             double duracion = leer.nextDouble();
-
             Pelicula peli = new Pelicula(titulo, genero, duracion);
             listaPelicula.add(peli);
             System.out.println("Pelicula agregada!!");
             System.out.println(peli);
-
             System.out.print("Desea agregar otra pelicula (s/n): ?");
             String respuesta = leer.next();
             continuar = respuesta.equalsIgnoreCase("s");

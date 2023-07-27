@@ -51,14 +51,11 @@ public class Main {
         while (true) {
             System.out.print("Código Postal ('salir' para detenerse): ");
             String codigoPostal = scanner.nextLine().trim();
-
             if (codigoPostal.equalsIgnoreCase("salir")) {
                 break;
             }
-
             System.out.print("Ciudad: ");
             String ciudad = scanner.nextLine().trim();
-
             codigosPostales.put(codigoPostal, ciudad);
             System.out.println("Ciudad y código postal añadidos con éxito!!");
         }
@@ -84,10 +81,8 @@ public class Main {
     private static void agregarCiudadAdicional(Map<String, String> codigosPostales) {
         System.out.print("Ingrese un nuevo código postal: ");
         String nuevoCodigoPostal = scanner.nextLine().trim();
-
         System.out.print("Ingrese la ciudad correspondiente: ");
         String nuevaCiudad = scanner.nextLine().trim();
-
         codigosPostales.put(nuevoCodigoPostal, nuevaCiudad);
         System.out.println("Ciudad y código postal añadidos con éxito!!");
     }
@@ -95,7 +90,6 @@ public class Main {
     private static void eliminarCiudad(Map<String, String> codigosPostales) {
         System.out.print("Ingrese el código postal de la ciudad a eliminar: ");
         String codigoEliminar = scanner.nextLine().trim();
-
         if (codigosPostales.remove(codigoEliminar) != null) {
             System.out.println("Ciudad eliminada con éxito!!");
         } else {

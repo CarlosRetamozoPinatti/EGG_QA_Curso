@@ -2,7 +2,6 @@ package service;
 
 import entity.Producto;
 import entity.Tienda;
-
 import java.util.Scanner;
 
 public class TiendaService {
@@ -22,10 +21,8 @@ public class TiendaService {
             double precio = Double.parseDouble(leer.next());
             System.out.println("Ingrese la cantidad inicial: ");
             int inventario = Integer.parseInt(leer.next());
-
             tienda.agregarProducto(new Producto(nombre, categoria, precio, inventario));
             System.out.println("Producto agregado correctamente!!");
-
             System.out.println("¿Desea agregar otro producto? (s/n): ");
             respuesta = leer.next().toLowerCase();
         } while (respuesta.equals("s"));
@@ -33,7 +30,6 @@ public class TiendaService {
 
     public void eliminarProductos(){
         String respuesta;
-
         do {
         System.out.println("Ingrese el nombre del producto a eliminar: ");
         String nombre = leer.next();
@@ -67,5 +63,4 @@ public class TiendaService {
             respuesta = leer.next().toLowerCase();
         } while (respuesta.equals("s"));
     }
-
 }

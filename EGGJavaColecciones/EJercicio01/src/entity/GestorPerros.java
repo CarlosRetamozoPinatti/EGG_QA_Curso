@@ -9,6 +9,7 @@ public class GestorPerros {
     public GestorPerros(){
         razasPerros = new ArrayList<>();
     }
+
     public void agregarRaza(){
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Como se llama la raza a agregar?");
@@ -16,6 +17,7 @@ public class GestorPerros {
         razasPerros.add(raza);
         System.out.println("La raza " + raza + " ha sido agregada!");
     }
+    
     public void mostrarRazas(){
         if (razasPerros.isEmpty()){
             System.out.println("La lista de razas esta vacía");
