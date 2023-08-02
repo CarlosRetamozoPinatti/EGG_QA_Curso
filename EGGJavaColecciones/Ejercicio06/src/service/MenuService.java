@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MenuService {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    ProductoService serv = new ProductoService();
+    ProductosService serv = new ProductosService();
 
     public void mostrarOpciones(){
         System.out.println("""
@@ -15,16 +15,35 @@ public class MenuService {
                 4 - Eliminar un Producto.
                 0 - Salir""");
     }
+
     public void mostrarMenu(){
         int opcion;
+        String nombre;
+        double precio;
         do {
             mostrarOpciones();
-            opcion = leer.nextInt();
+            opcion = Integer.parseInt(leer.next());
             switch (opcion){
-                case 1 -> serv.agregarProducto();
+                case 1 -> {
+                    System.out.print("Ingrese el nombre del producto: ");
+                    nombre = leer.next().toLowerCase();
+                    System.out.print("Ingrese el precio del producto: ");
+                    precio = Double.parseDouble(leer.next());
+                    serv.agregarProducto(nombre, precio);
+                }
                 case 2 -> serv.mostrarProductos();
-                case 3 -> serv.modificarPrecio();
-                case 4 -> serv.eliminarProducto();
+                case 3 -> {
+                    System.out.print("Ingrese el nombre del producto a modificar: ");
+                    nombre = leer.next().toLowerCase();
+                    System.out.print("Ingrese el nuevo precio del producto: ");
+                    precio = Double.parseDouble(leer.next());
+                    serv.modificarPrecio(nombre, precio);
+                }
+                case 4 -> {
+                    System.out.print("Ingrese el nombre del producto a eliminar: ");
+                    nombre = leer.next();
+                    serv.eliminarProducto(nombre);
+                }
                 case 0 -> System.out.println("Adios!!");
             }
         } while (opcion != 0);

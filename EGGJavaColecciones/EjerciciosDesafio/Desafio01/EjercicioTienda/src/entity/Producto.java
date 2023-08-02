@@ -38,10 +38,8 @@ public class Producto {
     public void venta() {
         if (inventario > 0) {
             Scanner leer = new Scanner(System.in);
-
             System.out.println("Ingrese la cantidad de productos que desea comprar (disponibles: " + inventario + "): ");
             int cantidadVenta = leer.nextInt();
-
             if (cantidadVenta > 0 && cantidadVenta <= inventario) {
                 inventario -= cantidadVenta;
                 System.out.println("Venta de " + cantidadVenta + " productos realizada correctamente.");
@@ -56,10 +54,8 @@ public class Producto {
 
     public void reposicion() {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Ingrese la cantidad de productos que desea reponer: ");
         int cantidadReposicion = scanner.nextInt();
-
         if (cantidadReposicion > 0) {
             inventario += cantidadReposicion;
             System.out.println("Reposición de " + cantidadReposicion + " productos realizada correctamente.");
