@@ -1,5 +1,7 @@
 package org.example.entity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Reserva {
@@ -7,10 +9,11 @@ public class Reserva {
     private int id;
     private int numeroHabitacion;
     private int cantidadPersonas;
-    private List<String> fechas;
+    private List<LocalDate> fechas;
 
-    public Reserva(int cantidadPersonas, List<String> fechas) {
+    public Reserva(int numeroHabitacion, int cantidadPersonas, List<LocalDate> fechas) {
         this.id = contID++;
+        this.numeroHabitacion = numeroHabitacion;
         this.cantidadPersonas = cantidadPersonas;
         this.fechas = fechas;
     }
@@ -39,21 +42,28 @@ public class Reserva {
         this.cantidadPersonas = cantidadPersonas;
     }
 
-    public List<String> getFechas() {
+    public List<LocalDate> getFechas() {
         return fechas;
     }
 
-    public void setFechas(List<String> fechas) {
+    public void setFechas(List<LocalDate> fechas) {
         this.fechas = fechas;
     }
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "id=" + id +
-                ", numeroHabitacion=" + numeroHabitacion +
-                ", cantidadPersonas=" + cantidadPersonas +
-                ", fechas=" + fechas +
-                '}';
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        StringBuilder fechasStr = new StringBuilder();
+        for (LocalDate fecha : fechas) {
+            if (fechasStr.length() > 0) {
+                fechasStr.append(", ");
+            }
+            fechasStr.append(fecha.format(dateFormatter));
+        }
+        return "Reserva: " + "\n" +
+                "ID: " + id + "\n" +
+                "Habitacion: " + numeroHabitacion + "\n" +
+                "Huespedes: " + cantidadPersonas + "\n" +
+                "Fechas: " + fechasStr;
     }
 }

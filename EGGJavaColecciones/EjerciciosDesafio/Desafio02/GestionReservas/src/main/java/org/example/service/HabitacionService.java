@@ -4,77 +4,80 @@ import org.example.entity.Habitacion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class HabitacionService {
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    private final Scanner leer;
     private List<Habitacion> habitaciones;
 
-    public HabitacionService(){
+    public HabitacionService(Scanner leer) {
+        this.leer = leer;
         habitaciones = new ArrayList<>();
     }
 
-    public void crearHabitacion(){
-        System.out.println("Ingrese el numero de la Habitacion: ");
-        int num = Integer.parseInt(leer.next().trim());
-        if (buscarHabitacionPorNumero(num) != null) {
-            System.out.println("Ya existe una habitacion con el mismo numero en la lista.");
+    public void crearHabitacion(int num, int capMax) {
+        if (buscarHabitacionPorNumero(num).isPresent()) {
+            System.out.println("Ya existe una habitación con el mismo número en la lista.");
             return;
         }
-        System.out.println("Ingrese la capacidad maxima de la habitacion: ");
-        int capMax = Integer.parseInt(leer.next().trim());
         Habitacion habitacion = new Habitacion(num, capMax);
         habitaciones.add(habitacion);
-        System.out.println("Habitacion agregada correctamente!!");
+        System.out.println("Habitación agregada correctamente!!");
     }
 
-    private Habitacion buscarHabitacionPorNumero(int num){
-        List<Habitacion> habNum = habitaciones.stream()
+    public int solicitarCantidadHuespedes() {
+        System.out.print("Cuantos huespedes seran?: ");
+        return leer.nextInt();
+    }
+
+    public Optional<Habitacion> buscarHabitacionPorNumero(int num) {
+        return habitaciones.stream()
                 .filter(habitacion -> habitacion.getNumeroHabitacion() == num)
-                .toList();
-        if (!habNum.isEmpty()){
-            return habNum.get(0);
-        } else {
-            return null;
-        }
+                .findFirst();
     }
 
-    public void modificarHabitacion(){
-        System.out.println("Ingrese el numero de habitacion a modificar: ");
-        int num = Integer.parseInt(leer.next().trim());
-        Habitacion habMod = buscarHabitacionPorNumero(num);
-        if (habMod == null){
-            System.out.println("No existe el numero de Habitacion..");
+    public boolean validarCapacidadHabitacion(Habitacion habitacion, int cantPersonas) {
+        return habitacion.getCapacidadMax() >= cantPersonas;
+    }
+
+
+    public int solicitarNumeroHabitacion() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número de habitación: ");
+        return scanner.nextInt();
+    }
+
+    public void modificarHabitacion(int num, int nuevaCapacidad) {
+        Optional<Habitacion> habMod = buscarHabitacionPorNumero(num);
+        if (habMod.isEmpty()) {
+            System.out.println("No existe la habitación con el número ingresado.");
             return;
         }
-        System.out.println("Ingrese la nueva capacidad de la habitacion: ");
-        int capMax = Integer.parseInt(leer.next().trim());
-        habMod.setCapacidadMax(capMax);
-        System.out.println("Modificacion exitosa!!..");
+        habMod.get().setCapacidadMax(nuevaCapacidad);
+        System.out.println("Modificación exitosa!!");
     }
 
-    public void verHabitaciones(){
-        if (habitaciones.isEmpty()){
+    public void verHabitaciones() {
+        if (habitaciones.isEmpty()) {
             System.out.println("---------------------");
-            System.out.println("Todavia no se registraron personas.");
+            System.out.println("Todavía no se registraron habitaciones.");
             System.out.println("---------------------");
         } else {
             System.out.println("---------------------");
-            System.out.println(habitaciones);
+            habitaciones.forEach(System.out::println);
             System.out.println("---------------------");
         }
     }
 
-    public void eliminarHabitaciones(){
-        System.out.println("Ingrese el Numero de habitacion que desea eliminar: ");
-        int num = Integer.parseInt(leer.next().trim());
-        Habitacion habElim = buscarHabitacionPorNumero(num);
-        if (habElim == null) {
-            System.out.println("No se encontró ninguna habitacion con el numero ingresado.");
+    public void eliminarHabitacion(int num) {
+        Optional<Habitacion> habElim = buscarHabitacionPorNumero(num);
+        if (habElim.isEmpty()) {
+            System.out.println("No se encontró ninguna habitación con el número ingresado.");
             return;
         }
-        habitaciones.remove(habElim);
-        System.out.println("La habitacion ha sido eliminada de la lista.");
+        habitaciones.remove(habElim.get());
+        System.out.println("La habitación ha sido eliminada de la lista.");
     }
 
     public List<Habitacion> getHabitaciones() {
@@ -85,3 +88,5 @@ public class HabitacionService {
         this.habitaciones = habitaciones;
     }
 }
+
+
