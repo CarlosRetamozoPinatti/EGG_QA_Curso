@@ -5,6 +5,7 @@ import org.example.entity.Habitacion;
 import org.example.entity.Persona;
 import org.example.entity.Reserva;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -31,19 +32,35 @@ public class HotelService {
         return LocalDate.parse(fecha, dateFormatter);
     }
 
+    private LocalDate leerFecha(String mensaje) {
+        LocalDate fecha = null;
+        boolean salirLoop = false;
+        while (!salirLoop) {
+            System.out.print(mensaje);
+            String fechaStr = leer.next();
+            if (fechaStr.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+                try {
+                    fecha = parseFecha(fechaStr);
+                    salirLoop = true;
+                } catch (Exception e) {
+                    System.out.print("La fecha ingresada es incorrecta!");
+                    salirLoop = false;
+                }
+            }
+        }
+        return fecha;
+    }
+
     public List<LocalDate> solicitarFechasReserva() {
         List<LocalDate> fechas = new ArrayList<>();
-
-        System.out.print("Desde cuando (YYYY-MM-DD): ");
-        String fechaInicio = leer.next();
-        LocalDate fechaInicioLocalDate = parseFecha(fechaInicio);
-        fechas.add(fechaInicioLocalDate);
-
-        System.out.print("Hasta cuando (YYYY-MM-DD): ");
-        String fechaFin = leer.next();
-        LocalDate fechaFinLocalDate = parseFecha(fechaFin);
-        fechas.add(fechaFinLocalDate);
-
+        LocalDate fechaInicio = leerFecha("Desde cuando (YYYY-MM-DD): ");
+        LocalDate fechaFin = leerFecha("Hasta cuando (YYYY-MM-DD): ");
+        if (fechaInicio != null && fechaFin != null && !fechaInicio.isAfter(fechaFin)) {
+            fechas.add(fechaInicio);
+            fechas.add(fechaFin);
+        } else {
+            System.out.print("El rango de fechas ingresado es incorrecto!\n");
+        }
         return fechas;
     }
 
