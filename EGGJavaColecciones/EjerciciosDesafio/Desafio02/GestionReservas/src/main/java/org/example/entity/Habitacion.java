@@ -1,7 +1,5 @@
 package org.example.entity;
 
-import java.util.Date;
-
 public class Habitacion {
     private int numeroHabitacion;
     private int capacidadMax;

@@ -1,6 +1,5 @@
 package org.example.entity;
 
-
 public class Alojamiento {
     private int idReserva;
 

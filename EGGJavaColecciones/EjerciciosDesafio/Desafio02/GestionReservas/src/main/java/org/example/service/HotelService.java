@@ -118,5 +118,13 @@ public class HotelService {
                 .findFirst()
                 .orElse(null);
     }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public List<Alojamiento> getAlojamientos() {
+        return alojamientos;
+    }
 }
 
