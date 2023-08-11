@@ -1,0 +1,40 @@
+@startuml
+class PistolaAgua {
+    - posicionActual : int
+    - posicionAgua : int
+    + llenarRevolver(): void
+    + mojar(): boolean
+    + siguienteChorro(): void
+    + toString(): String
+}
+
+class Jugador {
+    - id : int
+    - nombre : String
+    - mojado : boolean
+    + Jugador(id: int)
+    + disparo(r: PistolaAgua): boolean
+    + getId(): int
+    + setId(id: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + isMojado(): boolean
+    + setMojado(mojado: boolean): void
+    + toString(): String
+}
+
+class Juego {
+    - jugadores : ArrayList<Jugador>
+    - revolver : PistolaAgua
+    + llenarJuego(jugadores: ArrayList<Jugador>, r: PistolaAgua): void
+    + ronda(): void
+}
+
+class Ruleta {
+    + jugar(): void
+}
+
+PistolaAgua --o Jugador : mojar
+Jugador "1..*" -- Juego : jugadores
+Juego -- PistolaAgua : revolver
+@enduml

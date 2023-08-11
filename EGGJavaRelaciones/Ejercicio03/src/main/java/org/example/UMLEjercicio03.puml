@@ -1,0 +1,30 @@
+@startuml
+
+class Carta {
+    - numero: int
+    - palo: String
+    + Carta(numero: int, palo: String)
+    + toString(): String
+}
+
+class Baraja {
+    - cartas: List<Carta>
+    + Baraja()
+    + barajar(): void
+    + siguienteCarta(): Carta
+    + cartasDisponibles(): int
+    + darCartas(cantidad: int): List<Carta>
+    + cartasMonton(cartas: List<Carta>): void
+    + mostrarBaraja(): void
+}
+
+class Juego {
+    + jugar(): void
+}
+
+Carta "1" --* "1..*" Baraja : contiene
+Baraja "1" --* "0..*" Carta : contiene
+Baraja "1" -- "0..*" Juego : utiliza
+Juego "1" --* "1" Carta : utiliza
+
+@enduml

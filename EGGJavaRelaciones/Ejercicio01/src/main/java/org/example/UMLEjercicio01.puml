@@ -1,0 +1,26 @@
+@startuml
+class Perro {
+    - nombre : String
+    - raza : String
+    - edad : int
+    - tamaño : String
+    - adoptante : Persona
+    + Perro(nombre: String, raza: String, edad: int, tamaño: String)
+    + serAdoptadoPor(persona: Persona): void
+    + getInformacion(): String
+}
+
+class Persona {
+    - nombre : String
+    - apellido : String
+    - edad : int
+    - documento : int
+    - perrosAdoptados : Set<Perro>
+    + Persona(nombre: String, apellido: String, edad: int, documento: int)
+    + adoptarPerro(perro: Perro): void
+    + getInformacion(): String
+    + nombreCompleto(): String
+}
+
+Perro --o "1..*" Persona : adoptante
+@enduml
