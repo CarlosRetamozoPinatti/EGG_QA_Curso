@@ -1,0 +1,56 @@
+@startuml
+class Cliente {
+    - nombre: String
+    - apellido: String
+    - documento: int
+    - mail: String
+    - domicilio: String
+    - telefono: String
+    + Cliente(nombre: String, apellido: String, documento: int, mail: String, domicilio: String, telefono: String)
+    + getNombreCompleto(): String
+}
+
+class Vehiculo {
+    - marca: String
+    - modelo: String
+    - anio: int
+    - numeroMotor: String
+    - chasis: String
+    - color: String
+    - tipo: String
+    + Vehiculo(marca: String, modelo: String, anio: int, numeroMotor: String, chasis: String, color: String, tipo: String)
+}
+
+class Poliza {
+    - numeroPoliza: int
+    - fechaInicio: Date
+    - fechaFin: Date
+    - cantidadCuotas: int
+    - formaPago: String
+    - montoTotalAsegurado: double
+    - incluyeGranizo: boolean
+    - montoMaximoGranizo: double
+    - tipoCobertura: String
+    - cliente: Cliente
+    - vehiculo: Vehiculo
+    - cuotas: List<Cuota>
+    + Poliza(numeroPoliza: int, fechaInicio: Date, fechaFin: Date, cantidadCuotas: int, formaPago: String,
+             montoTotalAsegurado: double, incluyeGranizo: boolean, montoMaximoGranizo: double,
+             tipoCobertura: String, cliente: Cliente, vehiculo: Vehiculo)
+    + agregarCuota(cuota: Cuota): void
+}
+
+class Cuota {
+    - numeroCuota: int
+    - montoTotalCuota: double
+    - pagada: boolean
+    - fechaVencimiento: Date
+    - formaPago: String
+    + Cuota(numeroCuota: int, montoTotalCuota: double, pagada: boolean, fechaVencimiento: Date, formaPago: String)
+    + estaPagada(): boolean
+}
+
+Cliente "1" -- "*" Poliza : tiene
+Vehiculo "1" -- "*" Poliza : asegura
+Poliza "1" -- "*" Cuota : contiene
+@enduml

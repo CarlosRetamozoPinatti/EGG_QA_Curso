@@ -1,0 +1,29 @@
+@startuml
+class Gato {
+    - nombre: String
+    - raza: String
+    - edad: int
+    - tamaño: String
+    - adoptante: Persona
+    + Gato(nombre: String, raza: String, edad: int, tamaño: String)
+    + estaAdoptado(): boolean
+    + serAdoptadoPor(persona: Persona): void
+    + getInformacion(): String
+}
+
+class Persona {
+    - nombre: String
+    - apellido: String
+    - edad: int
+    - documento: int
+    - gatosAdoptados: Set<Gato>
+    + Persona(nombre: String, apellido: String, edad: int, documento: int)
+    + haAdoptadoGato(perro: Gato): boolean
+    + adoptarGato(perro: Gato): void
+    + getInformacion(): String
+    + nombreCompleto(): String
+}
+
+Gato "1" -- "0..1" Persona : adoptante
+Persona "1" -- "0..*" Gato : perrosAdoptados
+@enduml

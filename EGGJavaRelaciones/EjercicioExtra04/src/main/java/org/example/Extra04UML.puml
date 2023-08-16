@@ -1,0 +1,43 @@
+@startuml
+
+class Alumno {
+    - nombre: String
+    - DNI: Integer
+    - votos: Integer
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getDNI(): Integer
+    + setDNI(DNI: Integer): void
+    + getVotos(): Integer
+    + setVotos(votos: Integer): void
+    + toString(): String
+}
+
+class Voto {
+    - alumno: Alumno
+    - alumnoList: HashSet<Alumno>
+    + getAlumno(): Alumno
+    + setAlumno(alumno: Alumno): void
+    + getAlumnoList(): HashSet<Alumno>
+    + setAlumnoList(alumnoList: HashSet<Alumno>): void
+    + toString(): String
+}
+
+class Simulador {
+    - nAlumnos: Integer
+    + generarNombreCompleto(): List<String>
+    + generarDNI(): List<Integer>
+    + generarAlumnos(): List<Alumno>
+    + mostrarAlumnos(alumnos: List<Alumno>): void
+    + votacion(alumnos: List<Alumno>): List<Voto>
+    + mostrarVotos(votos: List<Voto>): void
+    + recuentoVotos(alumnos: List<Alumno>): Integer
+    + getFacilitadores(alumnos: List<Alumno>): List<Alumno>
+    + mostrarFacilitadores(facilitadores: List<Alumno>): void
+}
+
+Alumno --> Voto : 1..*
+Simulador --> Alumno
+Simulador --> Voto
+
+@enduml

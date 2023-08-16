@@ -1,0 +1,33 @@
+@startuml
+class Pelicula {
+    - titulo: String
+    - duracion: int
+    - edadMinima: int
+    - director: String
+    + Pelicula(titulo: String, duracion: int, edadMinima: int, director: String)
+    + esAptaParaEdad(edad: int): boolean
+    + getTitulo(): String
+}
+
+class Espectador {
+    - nombre: String
+    - edad: int
+    - dinero: double
+    + Espectador(nombre: String, edad: int, dinero: double)
+    + tieneDinero(precio: double): boolean
+    + tieneEdadParaVer(pelicula: Pelicula): boolean
+}
+
+class Cine {
+    - peliculaEnReproduccion: Pelicula
+    - precioEntrada: double
+    - sala: Espectador[][]
+    + Cine(peliculaEnReproduccion: Pelicula, precioEntrada: double)
+    + ubicarEspectadores(cantidadEspectadores: int): void
+    + ubicarEspectador(espectador: Espectador): void
+    + mostrarSala(): void
+}
+
+Cine "1" -- "1" Pelicula : peliculaEnReproduccion
+Cine "1" -- "0..*" Espectador : sala
+@enduml
