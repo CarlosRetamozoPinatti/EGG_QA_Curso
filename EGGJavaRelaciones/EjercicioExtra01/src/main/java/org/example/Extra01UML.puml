@@ -18,8 +18,8 @@ class Persona {
     - documento: int
     - gatosAdoptados: Set<Gato>
     + Persona(nombre: String, apellido: String, edad: int, documento: int)
-    + haAdoptadoGato(perro: Gato): boolean
-    + adoptarGato(perro: Gato): void
+    + haAdoptadoGato(gato: Gato): boolean
+    + adoptarGato(gato: Gato): void
     + getInformacion(): String
     + nombreCompleto(): String
 }

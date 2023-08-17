@@ -21,24 +21,24 @@ public class Persona {
         return gatosAdoptados.contains(gato);
     }
 
-    public void adoptarPerro(Gato gato) {
+    public void adoptarGato(Gato gato) {
         if (!gato.estaAdoptado()) {
             gatosAdoptados.add(gato);
-            gato.serAdoptadoPor(this); // Informar al perro que ha sido adoptado por esta persona
+            gato.serAdoptadoPor(this); // Se Informa que el gato ha sido adoptado por esta persona
         } else {
-            System.out.println("El perro " + gato.getInformacion() + " ya ha sido adoptado por otra persona.");
+            System.out.println("El gato " + gato.getInformacion() + " ya ha sido adoptado por otra persona.");
         }
     }
 
     public String getInformacion() {
         String informacionPersona = "Nombre: " + nombre + " " + apellido + ", Edad: " + edad + " años, Documento: " + documento;
         if (!gatosAdoptados.isEmpty()) {
-            informacionPersona += "\nPerros adoptados:\n";
+            informacionPersona += "\nGatos adoptados:\n";
             for (Gato gato : gatosAdoptados) {
                 informacionPersona += gato.getInformacion() + "\n";
             }
         } else {
-            informacionPersona += "\nAún no ha adoptado perros.";
+            informacionPersona += "\nAún no ha adoptado gatos.";
         }
         return informacionPersona;
     }

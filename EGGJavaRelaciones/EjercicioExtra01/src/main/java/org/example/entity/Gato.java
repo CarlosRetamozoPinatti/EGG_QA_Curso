@@ -23,13 +23,53 @@ public class Gato {
     }
 
     public String getInformacion() {
-        String informacionPerro = "Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + " años, Tamaño: " + tamaño;
+        String infoGato = "Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + " años, Tamaño: " + tamaño;
         if (adoptante != null) {
-            informacionPerro += ", Adoptado por: " + adoptante.nombreCompleto();
+            infoGato += ", Adoptado por: " + adoptante.nombreCompleto();
         } else {
-            informacionPerro += ", En espera de adopción";
+            infoGato += ", En espera de adopción";
         }
-        return informacionPerro;
+        return infoGato;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(String tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public Persona getAdoptante() {
+        return adoptante;
+    }
+
+    public void setAdoptante(Persona adoptante) {
+        this.adoptante = adoptante;
     }
 }
 
