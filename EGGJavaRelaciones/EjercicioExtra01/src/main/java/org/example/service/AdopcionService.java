@@ -22,6 +22,8 @@ public class AdopcionService {
             System.out.println("1. Dar de alta una persona");
             System.out.println("2. Dar de alta un gato");
             System.out.println("3. Adoptar un gato");
+            System.out.println("4. Ver personas con gatos adoptados");
+            System.out.println("5. Ver todos los gatos y su estado de adopción");
             System.out.println("0. Salir");
             System.out.print("Ingrese la opción: ");
             opcion = scanner.nextInt();
@@ -36,6 +38,12 @@ public class AdopcionService {
                     break;
                 case 3:
                     adoptarGato();
+                    break;
+                case 4:
+                    verPersonasConGatosAdoptados();
+                    break;
+                case 5:
+                    verTodosLosGatos();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
@@ -120,5 +128,20 @@ public class AdopcionService {
             }
         }
         return null;
+    }
+
+    private void verPersonasConGatosAdoptados() {
+        System.out.println("\n=== Personas con Gatos Adoptados ===");
+        for (Persona persona : personas) {
+            System.out.println(persona.getInformacion());
+        }
+    }
+
+    private void verTodosLosGatos() {
+        System.out.println("\n=== Todos los Gatos ===");
+        gatos.forEach(gato -> {
+            String estadoAdopcion = gato.estaAdoptado() ? "Adoptado por " + gato.getAdoptante().nombreCompleto() : "En espera de adopción";
+            System.out.println(gato.getInformacion() + ", Estado de Adopción: " + estadoAdopcion);
+        });
     }
 }
