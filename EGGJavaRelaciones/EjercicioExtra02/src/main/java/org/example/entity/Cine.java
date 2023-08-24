@@ -42,15 +42,21 @@ public class Cine {
 
     public void mostrarSala() {
         System.out.println("Estado de la sala:");
+        char filaLetra = 'A';
+
         for (int fila = 0; fila < 8; fila++) {
+            System.out.print(filaLetra + " ");
+
             for (int columna = 0; columna < 6; columna++) {
                 if (sala[fila][columna] != null) {
                     System.out.print("X ");
                 } else {
-                    System.out.print("- ");
+                    System.out.print(filaLetra + "" + (columna + 1) + " ");
                 }
             }
+
             System.out.println();
+            filaLetra++;
         }
     }
 }

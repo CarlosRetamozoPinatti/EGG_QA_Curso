@@ -1,0 +1,59 @@
+@startuml
+
+class Producto {
+    - id: int
+    - nombre: String
+    - precio: double
+    - stock: int
+    + Producto()
+    + Producto(nombre: String, precio: double, stock: int)
+    + agregarStock(cantidad: int): void
+    + reducirStock(cantidad: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getPrecio(): double
+    + setPrecio(precio: double): void
+    + getStock(): int
+    + setStock(stock: int): void
+    + toString(): String
+}
+
+class Tienda {
+    - id: int
+    - productos: ArrayList<Producto>
+    - direccion: String
+    - representante: String
+    + Tienda()
+    + Tienda(direccion: String, representante: String)
+    + agregarProducto(producto: Producto): void
+    + eliminarProducto(producto: Producto): void
+    + productoStock(producto: Producto): int
+    + venderProducto(producto: Producto, cantidad: int): void
+    + getId(): int
+    + setId(id: int): void
+    + getProductos(): ArrayList<Producto>
+    + setProductos(productos: ArrayList<Producto>): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getRepresentante(): String
+    + setRepresentante(representante: String): void
+}
+
+class TiendaService {
+    - tiendas: List<Tienda>
+    + TiendaService()
+    + crearTienda(idTienda: int, direccion: String, representante: String): void
+    + mostrarTiendas(): void
+    + modificarTienda(idTienda: int, nuevaDireccion: String, nuevoRepresentante: String): void
+    + eliminarTienda(idTienda: int): void
+    + crearProducto(nombre: String, precio: double, stock: int, tiendaId: int): void
+    + agregarProductoATienda(producto: Producto, tiendaId: int): void
+    + obtenerTodosLosProductos(): List<Producto>
+    + obtenerProductosPorTienda(tiendaId: int): List<Producto>
+}
+
+Producto -- Tienda
+Tienda "1" *-- "*" Producto
+TiendaService -- Tienda
+
+@enduml

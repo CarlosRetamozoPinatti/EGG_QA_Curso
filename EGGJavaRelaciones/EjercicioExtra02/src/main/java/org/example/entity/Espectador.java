@@ -16,6 +16,6 @@ public class Espectador {
     }
 
     public boolean tieneEdadParaVer(Pelicula pelicula) {
-        return edad >= pelicula.edadMinima;
+        return edad >= pelicula.getEdadMinima();
     }
 }

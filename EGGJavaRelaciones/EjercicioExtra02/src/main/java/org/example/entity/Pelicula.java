@@ -3,7 +3,7 @@ package org.example.entity;
 public class Pelicula {
     private String titulo;
     private int duracion;
-    int edadMinima;
+    private int edadMinima;
     private String director;
 
     public Pelicula(String titulo, int duracion, int edadMinima, String director) {
@@ -19,5 +19,9 @@ public class Pelicula {
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public int getEdadMinima() {
+        return edadMinima;
     }
 }
