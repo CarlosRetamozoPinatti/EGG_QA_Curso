@@ -9,7 +9,7 @@ public class Simulador {
     int nAlumnos = 30;
 
     public List<String> generarNombreCompleto() {
-        List<String> nombres = new ArrayList<String>();
+        List<String> nombres = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < nAlumnos; i++) {
@@ -26,17 +26,14 @@ public class Simulador {
     }
 
     public List<Integer> generarDNI() {
-        List<Integer> dnis = new ArrayList<Integer>();
+        List<Integer> dnis = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < nAlumnos; i++) {
             int dni = random.nextInt(20000000, 45000000);
-            //int dni = random.nextInt(45000000 - 20000000 + 1) + 20000000;
             while (dnis.contains(dni)) {
                 dni = random.nextInt(20000000, 45000000);
-                //dni = random.nextInt(45000000 - 20000000 + 1) + 20000000;
             }
-
             dnis.add(dni);
         }
 
@@ -44,7 +41,7 @@ public class Simulador {
     }
 
     public List<Alumno> generarAlumnos() {
-        List<Alumno> alumnos = new ArrayList<Alumno>();
+        List<Alumno> alumnos = new ArrayList<>();
         List<String> nombres = generarNombreCompleto();
         List<Integer> dnis = generarDNI();
 
@@ -67,37 +64,25 @@ public class Simulador {
     }
 
     public List<Voto> votacion(List<Alumno> alumnos) {
-        List<Voto> votos = new ArrayList<Voto>();
+        List<Voto> votos = new ArrayList<>();
         Random random = new Random();
 
         for (Alumno votante : alumnos) {
-            HashSet<Alumno> alumnosVotados = new HashSet<Alumno>();
+            HashSet<Alumno> alumnosVotados = new HashSet<>();
             for (int i = 0; i < 3; i++) {
                 int posAlumnoVotado = random.nextInt(nAlumnos);
                 Alumno alumnoVotado = alumnos.get(posAlumnoVotado);
-
-                /* VALIDACION PARA QUE NO SE VOTE EL MISMO Y NO SE REPITA
-                while ((alumnosVotados.contains(alumnoVotado)) || (alumnoVotado == votante)) {
-                    posAlumnoVotado = random.nextInt(nAlumnos);
-                    alumnoVotado = alumnos.get(posAlumnoVotado);
-                }
-                */
-
                 if ((alumnosVotados.contains(alumnoVotado)) || (alumnoVotado == votante)) {
                     continue;
                 }
-
                 alumnosVotados.add(alumnoVotado);
                 alumnoVotado.setVotos(alumnoVotado.getVotos() + 1);
             }
-
             Voto voto = new Voto();
             voto.setAlumno(votante);
             voto.setAlumnoList(alumnosVotados);
-
             votos.add(voto);
         }
-
         return votos;
     }
 
@@ -121,19 +106,16 @@ public class Simulador {
     }
 
     public List<Alumno> getFacilitadores(List<Alumno> alumnos) {
-        List<Alumno> facilitadores = new ArrayList<Alumno>();
-
+        List<Alumno> facilitadores = new ArrayList<>();
         alumnos.sort(new Comparator<Alumno>() {
             @Override
             public int compare(Alumno o1, Alumno o2) {
                 return o2.getVotos().compareTo(o1.getVotos());
             }
         });
-
         for (int i = 0; i < 10; i++) {
             facilitadores.add(alumnos.get(i));
         }
-
         return facilitadores;
     }
 
