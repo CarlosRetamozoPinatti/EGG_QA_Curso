@@ -4,6 +4,11 @@ public abstract class Componente {
     protected boolean averiado;
     protected boolean destruido;
 
+    public Componente(){
+        averiado = false;
+        destruido = false;
+    }
+
     public Componente(boolean averiado, boolean destruido) {
         this.averiado = averiado;
         this.destruido = destruido;

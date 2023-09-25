@@ -1,11 +1,11 @@
 package org.example.entity.armadura.piezas.componentes;
 
 public class Generador {
-    private final float energiaMax = 100;
+    private final float energiaMax = 10000;
     private float energia;
 
     public Generador() {
-        energia = 100;
+        energia = 10000;
     }
 
     public Generador(float en){
