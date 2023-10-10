@@ -1,0 +1,348 @@
+Escenario:
+
+Eres un Tester de pruebas Automatizadas para una Plataforma OTT (Over-The-Top). 
+La aplicación permite a los usuarios ver series, películas y transmisiones en vivo. 
+Además, los usuarios pueden agregar películas/series a su lista de seguimiento y administrar su suscripción mensual 
+y la configuración de su cuenta. La aplicación está disponible para navegadores web, dispositivos Android e IOS, y Roku. 
+La aplicación se actualiza con frecuencia con nuevas características y correcciones de errores.
+
+Escribe un documento que especifique los siguientes elementos:
+Diseña 5 casos de prueba para cada característica (ver series/películas, ver transmisiones, interactuar con la lista de seguimiento, 
+configurar la configuración de la cuenta, administrar la suscripción). 
+Puedes hacer suposiciones sobre el flujo de trabajo de la aplicación. Los casos de prueba deben incluir un ID, 
+descripción, condiciones previas, pasos y condiciones posteriores.
+Define los diferentes entornos que utilizarías para la aplicación,
+el propósito de cada entorno y el flujo de implementación entre ellos (solo en palabras, 
+no se requieren especificaciones técnicas de las implementaciones).
+Define criterios diferentes para las pruebas que se automatizarán y las que no se automatizarán.
+
+------------------------------------------------------------------------------------------------
+ESTRUCTURA GENERAL DE UN CASO DE PRUEBA:
+ID: Un identificador único para el caso de prueba que lo diferencia de otros casos.
+
+Descripción: Una breve descripción del propósito o el objetivo del caso de prueba, lo que se está probando.
+
+Condiciones Previas: Las condiciones o situaciones necesarias que deben estar presentes antes de ejecutar el caso de prueba. 
+Estas condiciones preparan el contexto para la prueba.
+
+Pasos: Una lista detallada de los pasos específicos que el probador debe seguir para ejecutar el caso de prueba. 
+Estos pasos guían la ejecución de la prueba y aseguran que se siga un proceso específico.
+
+Condiciones Posteriores: Los resultados esperados o las condiciones que deben cumplirse después de ejecutar el caso de prueba. 
+Estas condiciones verifican si la prueba se ejecutó correctamente y si se alcanzaron los objetivos.
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+Casos de Prueba para la Aplicación de Plataforma OTT
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Función: Ver Series/Películas
+
+Caso de Prueba 1
+
+ID: TC01
+Descripción: Verificar que un usuario pueda reproducir con éxito una película seleccionada desde la página de inicio.
+Precondiciones: El usuario ha iniciado sesión y está en la página de inicio.
+Pasos:
+Navegar a la página de inicio.
+Seleccionar una película de la lista recomendada.
+Hacer clic en el botón "Reproducir".
+Postcondiciones: La película seleccionada comienza a reproducirse.
+
+------------------------------------------------------------------------------------------------
+Caso de Prueba 2
+
+ID: TC02
+Descripción: Asegurarse de que un usuario pueda pausar y reanudar la reproducción mientras ve una serie.
+Precondiciones: El usuario está viendo una serie.
+Pasos:
+Comenzar a ver un episodio de una serie.
+Pausar la reproducción.
+Reanudar la reproducción.
+Postcondiciones: El episodio de la serie se reanuda desde donde se pausó.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 3
+
+ID: TC03
+Descripción: Comprobar si la aplicación puede manejar cambios en la calidad del video de manera fluida.
+Precondiciones: El usuario está viendo una película.
+Pasos:
+Reproducir una película.
+Cambiar la calidad del video.
+Postcondiciones: La película continúa reproduciéndose en la calidad de video seleccionada.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 4
+
+ID: TC04
+Descripción: Verificar si el usuario puede avanzar y retroceder en una transmisión en vivo.
+Precondiciones: El usuario está viendo una transmisión en vivo.
+Pasos:
+Comenzar a ver una transmisión en vivo.
+Avanzar 30 segundos.
+Retroceder 10 segundos.
+Postcondiciones: La reproducción de la transmisión en vivo avanza y retrocede según lo esperado.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 5
+
+ID: TC05
+Descripción: Asegurarse de que la aplicación muestre recomendaciones relevantes basadas en las preferencias del usuario.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la sección de "Recomendaciones".
+Revisar las recomendaciones.
+Postcondiciones: Las recomendaciones son relevantes para la historia de visualización y las preferencias del usuario.
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Función: Interactuar con la Lista de Reproducción
+
+Caso de Prueba 6
+
+ID: TC06
+Descripción: Verificar que un usuario pueda agregar una película a su lista de reproducción.
+Precondiciones: El usuario ha iniciado sesión y está en la página de detalles de la película.
+Pasos:
+Abrir la página de detalles de la película.
+Hacer clic en el botón "Agregar a la Lista de Reproducción".
+Postcondiciones: La película se agrega a la lista de reproducción del usuario.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 7
+
+ID: TC07
+Descripción: Comprobar si el usuario puede eliminar una serie de su lista de reproducción.
+Precondiciones: El usuario está en su página de lista de reproducción.
+Pasos:
+Ir a la lista de reproducción.
+Eliminar una serie de la lista de reproducción.
+Postcondiciones: La serie se elimina de la lista de reproducción.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 8
+
+ID: TC08
+Descripción: Asegurarse de que la lista de reproducción muestre información precisa sobre la cantidad de series/películas agregadas.
+Precondiciones: El usuario tiene series/películas en su lista de reproducción.
+Pasos:
+Acceder a la lista de reproducción.
+Postcondiciones: La lista de reproducción muestra la cantidad correcta de elementos.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 9
+
+ID: TC09
+Descripción: Verificar que un usuario pueda reproducir una serie desde su lista de reproducción.
+Precondiciones: El usuario está en su página de lista de reproducción.
+Pasos:
+Abrir la lista de reproducción.
+Seleccionar una serie para reproducir.
+Postcondiciones: La serie seleccionada comienza a reproducirse.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 10
+
+ID: TC10
+Descripción: Comprobar si un usuario puede borrar toda su lista de reproducción.
+Precondiciones: El usuario está en su página de lista de reproducción con elementos en la lista.
+Pasos:
+Acceder a la lista de reproducción.
+Borrar toda la lista de reproducción.
+Postcondiciones: La lista de reproducción está vacía.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Función: Configurar la Configuración de la Cuenta
+
+Caso de Prueba 11
+
+ID: TC11
+Descripción: Verificar que un usuario pueda cambiar su contraseña.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la configuración de la cuenta.
+Cambiar la contraseña.
+Postcondiciones: La contraseña se actualiza con éxito.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 12
+
+ID: TC12
+Descripción: Asegurarse de que un usuario pueda actualizar su dirección de correo electrónico.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la configuración de la cuenta.
+Actualizar la dirección de correo electrónico.
+Postcondiciones: La dirección de correo electrónico se actualiza con éxito.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 13
+
+ID: TC13
+Descripción: Comprobar si un usuario puede configurar la autenticación de dos factores.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la configuración de la cuenta.
+Habilitar la autenticación de dos factores.
+Postcondiciones: La autenticación de dos factores se habilita para la cuenta.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 14
+
+ID: TC14
+Descripción: Verificar que un usuario pueda cambiar su imagen de perfil.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la configuración de la cuenta.
+Cambiar la imagen de perfil.
+Postcondiciones: La imagen de perfil se actualiza con éxito.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 15
+
+ID: TC15
+Descripción: Comprobar si el usuario puede cerrar sesión en su cuenta.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a la configuración de la cuenta.
+Cerrar sesión en la cuenta.
+Postcondiciones: El usuario cierra sesión con éxito.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Función: Administración de la Suscripción
+
+Caso de Prueba 16
+
+ID: TC16
+Descripción: Verificar que un usuario pueda suscribirse a un plan mensual.
+Precondiciones: El usuario ha iniciado sesión.
+Pasos:
+Acceder a las opciones de suscripción.
+Suscribirse a un plan mensual.
+Postcondiciones: El usuario se suscribe al plan mensual seleccionado.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 17
+
+ID: TC17
+Descripción: Comprobar si un usuario puede actualizar su plan de suscripción.
+Precondiciones: El usuario ha iniciado sesión con una suscripción activa.
+Pasos:
+Acceder a las opciones de suscripción.
+Actualizar el plan de suscripción.
+Postcondiciones: El plan de suscripción se actualiza con éxito.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 18
+
+ID: TC18
+Descripción: Verificar que un usuario pueda cancelar su suscripción.
+Precondiciones: El usuario ha iniciado sesión con una suscripción activa.
+Pasos:
+Acceder a las opciones de suscripción.
+Cancelar la suscripción.
+Postcondiciones: La suscripción se cancela y el usuario recibe una notificación de la fecha de cancelación.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 19
+
+ID: TC19
+Descripción: Asegurarse de que el usuario pueda ver los detalles de su suscripción.
+Precondiciones: El usuario ha iniciado sesión con una suscripción activa.
+Pasos:
+Acceder a las opciones de suscripción.
+Ver los detalles de la suscripción.
+Postcondiciones: El usuario puede ver los detalles de su suscripción, incluida la fecha de renovación.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 20
+
+ID: TC20
+Descripción: Comprobar si un usuario puede reactivar una suscripción cancelada.
+Precondiciones: El usuario ha iniciado sesión con una suscripción cancelada.
+Pasos:
+Acceder a las opciones de suscripción.
+Reactivar la suscripción cancelada.
+Postcondiciones: La suscripción cancelada se reactiva con éxito.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Función: Streams
+
+------------------------------------------------------------------------------------------------
+Caso de Prueba 21
+
+ID: TC21
+Descripción: Verificar que los usuarios puedan iniciar con éxito una transmisión en vivo.
+Precondiciones: El usuario ha iniciado sesión con una suscripción activa.
+Pasos:
+Navegar a la sección de transmisiones en vivo.
+Seleccionar un evento de transmisión en vivo.
+Hacer clic en el botón "Iniciar Transmisión".
+Postcondiciones: El evento de transmisión en vivo seleccionado debería comenzar a reproducirse.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 22: Pausar y Reanudar Transmisión en Vivo
+
+ID: TC22
+Descripción: Verificar que los usuarios puedan pausar y reanudar una transmisión en vivo.
+Precondiciones: El usuario está viendo una transmisión en vivo.
+Pasos:
+Ver la transmisión en vivo durante unos minutos.
+Hacer clic en el botón "Pausa".
+Hacer clic en el botón "Reproducir" para reanudar.
+Postcondiciones: La transmisión en vivo debería pausarse y reanudarse desde donde se pausó.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 23: Opciones de Calidad de la Transmisión en Vivo
+
+ID: TC23
+Descripción: Verificar que los usuarios puedan seleccionar diferentes opciones de calidad para una transmisión en vivo.
+Precondiciones: El usuario está viendo una transmisión en vivo.
+Pasos:
+Reproducir la transmisión en vivo.
+Acceder al menú de configuración de calidad.
+Seleccionar una opción de calidad diferente (por ejemplo, HD, SD).
+Postcondiciones: La calidad de la transmisión en vivo debería cambiar según la opción seleccionada.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 24: Interacción con el Chat de la Transmisión en Vivo
+
+ID: TC24
+Descripción: Verificar que los usuarios puedan interactuar con el chat de la transmisión en vivo.
+Precondiciones: El usuario está viendo una transmisión en vivo con la función de chat activa.
+Pasos:
+Reproducir la transmisión en vivo.
+Acceder a la sección de chat.
+Enviar un mensaje en el chat.
+Postcondiciones: El mensaje del usuario debería ser visible en el chat.
+------------------------------------------------------------------------------------------------
+Caso de Prueba 25: Funcionalidad de DVR en la Transmisión en Vivo
+
+ID: TC25
+Descripción: Verificar que los usuarios puedan rebobinar o avanzar rápidamente en una transmisión en vivo utilizando la funcionalidad de DVR.
+Precondiciones: El usuario está viendo una transmisión en vivo con capacidades de DVR.
+Pasos:
+Reproducir la transmisión en vivo.
+Utilizar los controles de DVR para rebobinar o avanzar rápidamente en la transmisión en vivo.
+Postcondiciones: La transmisión en vivo debería rebobinarse o avanzar rápidamente según la entrada del usuario.
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+Diferentes Entornos y Flujo de Implementación
+
+Entorno de Desarrollo (DEV): Este entorno se utiliza para el desarrollo inicial y la prueba de nuevas características y 
+correcciones de errores. Los desarrolladores y probadores trabajan aquí. 
+El flujo de implementación implica herramientas de integración continua (CI) que despliegan automáticamente 
+el código en este entorno después de compilaciones exitosas.
+
+
+Entorno de Control de Calidad/Preproducción (QA): Después del desarrollo, el código se implementa en este entorno para pruebas rigurosas 
+por parte de ingenieros de control de calidad (QA). Refleja de cerca el entorno de producción. 
+La implementación se realiza manualmente por parte del equipo de gestión de versiones después de pruebas exhaustivas en el entorno DEV.
+
+
+Entorno de Producción (PROD): El entorno en vivo donde los usuarios finales acceden a la aplicación. 
+La implementación en PROD es un proceso cuidadosamente planificado y controlado, 
+generalmente realizado durante las horas no pico para minimizar las interrupciones.
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Criterios de Automatización de Casos de Prueba
+
+Los casos de prueba que involucran tareas repetitivas y que consumen tiempo, 
+pruebas de regresión y escenarios con una alta probabilidad de error humano son candidatos para la automatización. 
+Los casos de prueba que requieren pruebas exploratorias, pruebas ad hoc o que dependen en gran medida 
+de la interfaz de usuario y la estética pueden no ser adecuados para la automatización. 
+Las pruebas automatizadas suelen escribirse utilizando marcos de prueba como Selenium para navegadores web y Appium para dispositivos móviles. 
+La automatización debe considerarse para:
+
+Caso de Prueba 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 
+
+debido a su naturaleza repetitiva y su idoneidad para la automatización.
+Las pruebas manuales se recomiendan para escenarios que implican evaluación subjetiva, 
+pruebas de usabilidad y pruebas exploratorias ad hoc. 
+Estas pruebas suelen ser realizadas por ingenieros de control de calidad con experiencia para proporcionar información valiosa 
+que las pruebas automatizadas no pueden capturar de manera efectiva.

@@ -1,0 +1,22 @@
+<suite name="WikipediaTestSuite">
+    <test name="LoginTest">
+        <packages>
+            <package name="org.example.test.LoginTest" />
+        </packages>
+    </test>
+    <test name="LogoutTest">
+        <packages>
+            <package name="org.example.test.LogoutTest" />
+        </packages>
+    </test>
+    <test name="SearchTest">
+        <packages>
+            <package name="org.example.test.SearchTest" />
+        </packages>
+    </test>
+    <test name="ChangeLanguageTest">
+        <packages>
+            <package name="org.example.test.ChangeLanguageTest" />
+        </packages>
+    </test>
+</suite>
