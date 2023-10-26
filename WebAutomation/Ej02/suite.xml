@@ -1,0 +1,7 @@
+<suite name="DemoBlazeTestSuite">
+    <test name="DemoBlazeAutomationTest">
+        <packages>
+            <package name="org.example.test.DemoBlazeAutomationTest" />
+        </packages>
+    </test>
+</suite>
