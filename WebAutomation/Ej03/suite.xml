@@ -1,0 +1,7 @@
+<suite name="SauceDemoTestSuite">
+    <test name="SauceDemoTest">
+        <packages>
+            <package name="org.example.test.SauceDemoTest" />
+        </packages>
+    </test>
+</suite>
