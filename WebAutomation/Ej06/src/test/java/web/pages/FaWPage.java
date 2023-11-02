@@ -8,7 +8,7 @@ public class FaWPage extends BasePage{
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]")
     private static WebElement clickHerebtn;
 
-    @FindBy(id = "iFrame")
+    @FindBy(linkText = "iFrame")
     private static WebElement iFrameTab;
 
     public FaWPage(WebDriver driver, String url) {
@@ -23,6 +23,6 @@ public class FaWPage extends BasePage{
         iFrameTab.click();
         //Aca uso el Switch Iframe para usar el Html dentro del Html...
         this.Sleep();
-        driver.switchTo().frame("//iframe[contains(text(),'<br />')]");
+
     }
 }

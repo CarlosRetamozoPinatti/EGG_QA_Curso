@@ -1,0 +1,15 @@
+Endpoint	HTTP Method	    Request Body	        Possible Response Codes
+-------------------------------------------------------------------------------
+/books	    GET	            None	                200 OK, 404 Not Found
+-------------------------------------------------------------------------------
+/books/{id}	GET	            None	                200 OK, 404 Not Found
+-------------------------------------------------------------------------------
+/books	    POST	        JSON object containing
+                            book information	    201 Created, 400 Bad Request
+-------------------------------------------------------------------------------
+/books/{id}	PUT	            JSON object containing
+                            updated book
+                            information         	200 OK, 400 Bad Request, 404 Not Found
+-------------------------------------------------------------------------------
+/books/{id}	DELETE	        None	                204 No Content, 404 Not Found
+-------------------------------------------------------------------------------

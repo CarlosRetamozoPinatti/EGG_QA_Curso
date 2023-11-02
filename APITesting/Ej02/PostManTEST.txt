@@ -1,0 +1,34 @@
+Parte I: Crear una colección y obtener datos de Pikachu
+
+Abre Postman y, opcionalmente, crea una cuenta gratuita o inicia sesión en Postman.
+
+En Postman, puedes ver la barra lateral izquierda donde puedes
+crear y organizar tus solicitudes en colecciones. Haz clic en "Collections" y
+luego en "New Collection". Da un nombre a tu colección.
+
+Dentro de tu colección, crea una nueva solicitud haciendo clic en el botón "New Request".
+Asigna un nombre a esta solicitud.
+
+En la pestaña "Request" de la solicitud,
+asegúrate de que el método HTTP esté configurado como GET.
+
+Ahora, necesitas establecer la URL de la solicitud.
+La URL base de la PokeAPI es https://pokeapi.co/api/v2/.
+Para obtener datos de Pikachu, la URL completa será https://pokeapi.co/api/v2/pokemon/pikachu.
+
+Envía la solicitud haciendo clic en el botón "Send".
+Verás la respuesta de la API en la parte inferior de la pantalla.
+
+La respuesta debería incluir detalles sobre Pikachu,
+como su nombre, ID, habilidades, tipos, etc. Puedes explorar la respuesta para ver estos detalles.
+
+Parte II: Realizar solicitudes adicionales
+
+Puedes usar esta información para hacer solicitudes adicionales a la API.
+Por ejemplo, puedes obtener pokémon de un tipo específico o de una especie en particular.
+
+Para obtener pokémon de un tipo específico (por ejemplo, "electric"),
+puedes ajustar la URL de la solicitud.
+Por ejemplo, para obtener todos los pokémon de tipo eléctrico, asi como los pros y contras,
+y movimientos de este tipo, la URL sería https://pokeapi.co/api/v2/type/electric.
+
