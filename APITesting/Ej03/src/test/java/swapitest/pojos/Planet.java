@@ -132,5 +132,23 @@ public class Planet {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return  "name='" + name +'\n' +
+                ", rotation_period='" + rotation_period +'\n' +
+                ", orbital_period='" + orbital_period +'\n' +
+                ", diameter='" + diameter +'\n' +
+                ", climate='" + climate +'\n' +
+                ", gravity='" + gravity +'\n' +
+                ", terrain='" + terrain +'\n' +
+                ", surface_water='" + surface_water +'\n' +
+                ", population='" + population +'\n' +
+                ", residents=" + residents +'\n' +
+                ", films=" + films +'\n' +
+                ", created='" + created +'\n' +
+                ", edited='" + edited +'\n' +
+                ", url='" + url;
+    }
 }
 

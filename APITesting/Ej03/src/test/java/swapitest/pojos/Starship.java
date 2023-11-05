@@ -168,5 +168,27 @@ public class Starship {
         public void setUrl(String url) {
             this.url = url;
         }
+
+    @Override
+    public String toString() {
+        return  "name='" + name +'\n' +
+                ", model='" + model +'\n' +
+                ", manufacturer='" + manufacturer +'\n' +
+                ", cost_in_credits='" + cost_in_credits +'\n' +
+                ", length='" + length +'\n' +
+                ", max_atmosphering_speed='" + max_atmosphering_speed +'\n' +
+                ", crew='" + crew +'\n' +
+                ", passengers='" + passengers +'\n' +
+                ", cargo_capacity='" + cargo_capacity +'\n' +
+                ", consumables='" + consumables +'\n' +
+                ", hyperdrive_rating='" + hyperdrive_rating +'\n' +
+                ", MGLT='" + MGLT +'\n' +
+                ", starship_class='" + starship_class +'\n' +
+                ", pilots=" + pilots +'\n' +
+                ", films=" + films +'\n' +
+                ", created='" + created +'\n' +
+                ", edited='" + edited +'\n' +
+                ", url='" + url;
     }
+}
 

@@ -141,5 +141,24 @@ public class Species {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return  "name='" + name +'\n' +
+                ", classification='" + classification +'\n' +
+                ", designation='" + designation +'\n' +
+                ", average_height='" + average_height +'\n' +
+                ", skin_colors='" + skin_colors +'\n' +
+                ", hair_colors='" + hair_colors +'\n' +
+                ", eye_colors='" + eye_colors +'\n' +
+                ", average_lifespan='" + average_lifespan +'\n' +
+                ", homeworld='" + homeworld +'\n' +
+                ", language='" + language +'\n' +
+                ", people=" + people +'\n' +
+                ", films=" + films +'\n' +
+                ", created='" + created +'\n' +
+                ", edited='" + edited +'\n' +
+                ", url='" + url;
+    }
 }
 

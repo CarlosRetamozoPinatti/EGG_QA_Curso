@@ -132,5 +132,23 @@ public class Film {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return  "title='" + title +'\n' +
+                ", episode_id=" + episode_id +'\n' +
+                ", opening_crawl='" + opening_crawl +'\n' +
+                ", director='" + director +'\n' +
+                ", producer='" + producer +'\n' +
+                ", release_date='" + release_date +'\n' +
+                ", characters=" + characters +'\n' +
+                ", planets=" + planets +'\n' +
+                ", starships=" + starships +'\n' +
+                ", vehicles=" + vehicles +'\n' +
+                ", species=" + species +'\n' +
+                ", created='" + created +'\n' +
+                ", edited='" + edited +'\n' +
+                ", url='" + url;
+    }
 }
 
