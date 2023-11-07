@@ -14,7 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.*;
 
 public class SWAPITest {
@@ -81,7 +80,7 @@ public class SWAPITest {
         Planet fixturePlanet = gson.fromJson(fileReader, Planet.class);
         String fixtureClimate = fixturePlanet.getClimate();
         String fixtureGravity = fixturePlanet.getGravity();
-        
+
         //Comparo.
         assertEquals(responseClimate,fixtureClimate);
         assertEquals(responseGravity, fixtureGravity);
