@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Test03 extends BaseTest {
     @Test
@@ -20,14 +21,10 @@ public class Test03 extends BaseTest {
         String usersResponseBody = getUsersResponse.getResponseBody();
 
         // Convertir la respuesta JSON a una lista de usuarios
-        List<User> existingUsers = Arrays.asList(new Gson().fromJson(usersResponseBody, User[].class));
-        System.out.println(existingUsers);
+        List<User> existingUsers = Arrays.stream(new Gson().fromJson(usersResponseBody, User[].class)).collect(Collectors.toList());
 
         // Verificar que no haya correos electrónicos duplicados entre los usuarios existentes
-        Set<String> uniqueEmails = new HashSet<>();
-        for (User existingUser : existingUsers) {
-            // Verificar si el correo ya existe en la lista
-            Assert.assertTrue(uniqueEmails.add(existingUser.getEmail()), "Los correos electrónicos de los usuarios existentes no deben ser iguales.");
-        }
+        Set<String> uniqueEmails = existingUsers.stream().map(User::getEmail).collect(Collectors.toSet());
+        Assert.assertEquals(uniqueEmails.size(), existingUsers.size(), "Los correos electrónicos de los usuarios existentes no deben ser iguales.");
     }
 }

@@ -7,6 +7,8 @@ import models.Transaction;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class Test05 extends BaseTest {
 
     @Test
@@ -25,5 +27,14 @@ public class Test05 extends BaseTest {
         // Verificar que la respuesta sea exitosa (código de estado 201 - CREADO)
         int statusCode = response.getStatusCode();
         Assert.assertEquals(statusCode, 201, "El depósito de dinero no fue exitoso.");
+
+        // Verificar que el monto del depósito sea correcto - ACA ESTO NO FUNCIONA
+        /*
+        String responseBody = response.getResponseBody();
+        Transaction responseTransaction = new Gson().fromJson(responseBody, Transaction.class);
+        Assert.assertEquals(responseTransaction.getAmount(), 1000, "El monto del depósito no es correcto.");
+
+        ESTA PARTE ESTA COMENTADA HASTA CORREGIR EL PROBLEMA DE POST Y PUT
+         */
     }
 }

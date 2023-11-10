@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Test04 extends BaseTest{
     private static final int USER_ID = 1;
@@ -17,33 +19,23 @@ public class Test04 extends BaseTest{
     public void updateExistingAccountNumber() {
         // Obtener la lista de usuarios existentes
         APIResponse getUsersResponse = APIClient.sendGETRequest(apiUrl);
-        String usersResponseBody = getUsersResponse.getResponseBody();
-
-        // Convertir la respuesta JSON a una lista de usuarios
-        List<User> existingUsers = Arrays.asList(new Gson().fromJson(usersResponseBody, User[].class));
-        System.out.println(existingUsers);
+        List<User> existingUsers = Arrays.stream(new Gson().fromJson(getUsersResponse.getResponseBody(), User[].class)).collect(Collectors.toList());
 
         // Verificar que haya al menos un usuario para actualizar
-        Assert.assertFalse(existingUsers.isEmpty(), "No hay usuarios para actualizar.");
-
-        // Tomar el primer usuario de la lista para actualizar su número de cuenta
-        User userToUpdate = existingUsers.get(0);
-        System.out.println(userToUpdate);
+        Optional<User> userToUpdate = existingUsers.stream().findFirst();
+        Assert.assertTrue(userToUpdate.isPresent(), "No hay usuarios para actualizar.");
 
         // Generar un nuevo número de cuenta único para la actualización
         Integer newAccountNumber = generateUniqueAccountNumber(existingUsers);
 
         // Actualizar el número de cuenta del usuario
-        userToUpdate.setAccountNum(newAccountNumber);
-        System.out.println(userToUpdate);
+        userToUpdate.get().setAccountNum(newAccountNumber);
 
         // Convertir el objeto User actualizado a JSON
-        String requestBody = new Gson().toJson(userToUpdate);
-        System.out.println(requestBody);
+        String requestBody = new Gson().toJson(userToUpdate.get());
 
         // Enviar una solicitud PUT para actualizar el número de cuenta del usuario
         APIResponse response = APIClient.sendPUTRequest(apiUrl + "/" + USER_ID, requestBody);
-        System.out.println(apiUrl + "/" + USER_ID);
 
         // Verificar que la respuesta sea exitosa (código de estado 200 u otro código adecuado)
         int statusCode = response.getStatusCode();
@@ -67,7 +59,6 @@ public class Test04 extends BaseTest{
                 }
             }
         } while (isDuplicate);
-        System.out.println(newAccountNumber);
         return newAccountNumber;
     }
 }

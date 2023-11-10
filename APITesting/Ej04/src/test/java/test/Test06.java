@@ -1,12 +1,15 @@
 package test;
+
 import api.APIClient;
-import models.Transaction;
 import api.APIResponse;
 import com.google.gson.Gson;
+import models.Transaction;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test06 extends BaseTest{
+import java.util.Arrays;
+
+public class Test06 extends BaseTest {
 
     @Test
     public void verifyCorrectWithdrawal() {
@@ -24,5 +27,14 @@ public class Test06 extends BaseTest{
         // Verificar que la respuesta sea exitosa (código de estado 201 - POST)
         int statusCode = response.getStatusCode();
         Assert.assertEquals(statusCode, 201, "El retiro de dinero no fue exitoso.");
+
+        // Verificar que el monto del retiro sea correcto - ACA ESTO NO FUNCIONA
+        /*
+        String responseBody = response.getResponseBody();
+        Transaction responseTransaction = new Gson().fromJson(responseBody, Transaction.class);
+        Assert.assertEquals(responseTransaction.getAmount(), 500, "El monto del retiro no es correcto.");
+
+        ESTA PARTE ESTA COMENTADA HASTA CORREGIR EL PROBLEMA DE POST Y PUT
+         */
     }
 }
