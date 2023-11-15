@@ -13,7 +13,7 @@ public class DemoBlazeAutomationTest {
     @BeforeMethod
     public static void setUpDriver() {
         // Configura el WebDriver de Chrome
-        System.setProperty("webdriver.chrome.driver", "D:/Installers/chromedriver-win64/chromedriver-win64/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:/Installers/chromedriver-win64/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
