@@ -5,7 +5,6 @@ import api.APIUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.annotations.BeforeTest;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -22,7 +21,7 @@ public class Test {
       //  throw new io.cucumber.java.PendingException();
     }
     @When("Busco el personaje de Star Wars en Wikipedia")
-    public void busco_el_personaje_de_star_wars_en_wikipedia() {
+    public void busco_el_personaje_de_star_wars_en_wikipedia() throws InterruptedException {
         wikipediaPageTitle = apiUtils.searchInWikipedia(searchTerm);
        // throw new io.cucumber.java.PendingException();
     }

@@ -22,4 +22,8 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
+
+    public void Sleep() throws InterruptedException {
+        Thread.sleep(4000);
+    }
 }
