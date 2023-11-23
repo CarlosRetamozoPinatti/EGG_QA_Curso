@@ -7,21 +7,16 @@ import pages.WebDriverManager;
 import pages.WikiPage;
 
 public class APIUtils {
-    public String getPeopleTest(String urlElement){
-        APIResponse response = APIClient.sendGETRequest(urlElement);
+    public String getCharacterNameFromAPI(String apiUrl){
+        APIResponse response = APIClient.sendGETRequest(apiUrl);
         String responseBody = response.getResponseBody();
-
-        // Utilizar Gson para parsear la respuesta JSON y extraer el valor del campo "name"
         JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
-        String charName = jsonObject.get("name").getAsString();
-        return charName;
+        return jsonObject.get("name").getAsString();
     }
 
-    public String getFilmTest(String urlElement) {
-        APIResponse response = APIClient.sendGETRequest(urlElement);
+    public String getFilmTitleFromAPI(String apiUrl) {
+        APIResponse response = APIClient.sendGETRequest(apiUrl);
         String responseBody = response.getResponseBody();
-
-        // Utilizar Gson para parsear la respuesta JSON y extraer el valor del campo "name"
         JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
         return jsonObject.get("title").getAsString();
     }
@@ -30,14 +25,13 @@ public class APIUtils {
         WebDriver driver = WebDriverManager.getDriver();
         WikiPage wikiPage = new WikiPage(driver);
         wikiPage.searchInWikipedia(searchTerm);
-        // Retornar el título de la página actual después de la búsqueda
         return driver.getTitle();
     }
 
     public String searchEdit(String searchTerm) throws InterruptedException {
         WebDriver driver = WebDriverManager.getDriver();
         WikiPage wikiPage = new WikiPage(driver);
-        wikiPage.checkEditBtn(searchTerm);
+        wikiPage.checkEditButton(searchTerm);
         return driver.getTitle();
     }
 }

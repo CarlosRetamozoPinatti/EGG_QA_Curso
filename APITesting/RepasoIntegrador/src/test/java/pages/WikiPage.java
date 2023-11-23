@@ -9,46 +9,48 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class WikiPage extends BasePage {
     private static final String URL = "https://www.wikipedia.org/";
+
     @FindBy(id = "searchInput")
-    private static WebElement buscador;
+    private static WebElement searchInput;
 
     @FindBy(id = "ca-edit")
-    private static WebElement btnEditar;
+    private static WebElement editButton;
 
     @FindBy(id = "ca-history")
-    private static WebElement btnHistorial;
+    private static WebElement historyButton;
 
     public WikiPage(WebDriver driver) {
         super(driver);
         driver.get(URL);
     }
 
-    public void searchInWikipedia(String searchTerm) throws InterruptedException {
-        buscador.sendKeys(searchTerm);
-        buscador.sendKeys(Keys.RETURN);
-        this.Sleep();
+    public void searchInWikipedia(String searchTerm) {
+        this.isVisible(searchInput);
+        searchInput.sendKeys(searchTerm);
+        searchInput.sendKeys(Keys.RETURN);
     }
 
-    public void checkEditBtn(String searchTerm) throws InterruptedException {
-        buscador.sendKeys(searchTerm);
-        buscador.sendKeys(Keys.RETURN);
-        this.Sleep();
-        btnEditar.click();
-        this.Sleep();
+    public void checkEditButton(String searchTerm) throws InterruptedException {
+        this.isVisible(searchInput);
+        searchInput.sendKeys(searchTerm);
+        searchInput.sendKeys(Keys.RETURN);
+        this.isVisible(editButton);
+        editButton.click();
+        this.sleep();
     }
 
-    public void checkHistorialBtn(String searchTerm) throws InterruptedException {
-        buscador.sendKeys(searchTerm);
-        buscador.sendKeys(Keys.RETURN);
-        this.isVisible(btnHistorial);
-        btnHistorial.click();
-        this.Sleep();
+    public void checkHistoryButton(String searchTerm) throws InterruptedException {
+        searchInput.sendKeys(searchTerm);
+        searchInput.sendKeys(Keys.RETURN);
+        this.isVisible(historyButton);
+        historyButton.click();
+        this.sleep();
     }
 
     public void assertResults(String expectedTitle) throws InterruptedException {
         String pageTitle = driver.getTitle();
-        assertTrue(pageTitle.contains(expectedTitle)); // Verificar si el título contiene el término esperado
-        this.Sleep();
-        this.Exit();
+        assertTrue(pageTitle.contains(expectedTitle));
+        this.sleep();
+        this.exit();
     }
 }
