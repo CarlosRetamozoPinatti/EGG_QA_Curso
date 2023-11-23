@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static pages.WebDriverManager.quitDriver;
+
 public class BasePage {
     protected WebDriver driver;
     private WebDriverWait wait;
@@ -25,5 +27,9 @@ public class BasePage {
 
     public void Sleep() throws InterruptedException {
         Thread.sleep(4000);
+    }
+
+    public void Exit(){
+        quitDriver();
     }
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 public class WikiPage extends BasePage {
     private static final String URL = "https://www.wikipedia.org/";
     @FindBy(id = "searchInput")
@@ -41,5 +43,12 @@ public class WikiPage extends BasePage {
         this.isVisible(btnHistorial);
         btnHistorial.click();
         this.Sleep();
+    }
+
+    public void assertResults(String expectedTitle) throws InterruptedException {
+        String pageTitle = driver.getTitle();
+        assertTrue(pageTitle.contains(expectedTitle)); // Verificar si el título contiene el término esperado
+        this.Sleep();
+        this.Exit();
     }
 }

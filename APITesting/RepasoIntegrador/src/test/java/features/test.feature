@@ -5,3 +5,4 @@ Feature: Personaje Star Wars
     Given Soy un usuario en la pagina principal de Wikipedia intentando buscar un articulo
     When Busco el personaje de Star Wars en Wikipedia
     Then Deberia visualizar correctamente el articulo relacionado
+
