@@ -39,7 +39,7 @@ const reverse = (array) => {
   const reverse2 = (array) => array.map((el, id, givenArr) => givenArr[givenArr.length - id - 1]);
 
 
-//Soluciones de ejecucion para cada funcion reverse
+//Llamados de ejecucion para cada funcion reverse
 const reversedArray = reverse([1, 2, 3]);
 console.log(reversedArray); // Output: [3, 2, 1]
 

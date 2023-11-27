@@ -8,6 +8,5 @@
  */
 const fill = (arraySize, value) => new Array(arraySize).fill(value);
 
-// Ejemplo de uso
 const newArray = fill(3, 'a');
 console.log(newArray); // Output: ['a', 'a', 'a']
