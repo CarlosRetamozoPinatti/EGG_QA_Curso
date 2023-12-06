@@ -1,0 +1,16 @@
+{
+    "DatosValidos": [
+      {
+        "username": "Charlie",
+        "password": "pwd",
+        "success": "Welcome, Charlie!"
+      }
+    ],
+    "DatosInvalidos": [
+      {
+        "username": "Charlie",
+        "password": "notpwd",
+        "failure": "Invalid username/password"
+      }
+    ]
+  }

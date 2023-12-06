@@ -47,6 +47,17 @@
 # CMake
 cmake-build-*/
 
+# Ignorar la carpeta generada por Cypress
+/cypress/videos
+/cypress/screenshots
+/cypress/downloads
+/cypress/plugins/screenshots
+
+# Ignorar todos los archivos Cypress excepto los tests en JS y JSON en fixtures
+/cypress/*
+!/cypress/**/*.js
+!/cypress/fixtures/**/*.json
+
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
