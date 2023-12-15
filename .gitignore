@@ -47,16 +47,11 @@
 # CMake
 cmake-build-*/
 
-# Ignorar la carpeta generada por Cypress
-/cypress/videos
-/cypress/screenshots
-/cypress/downloads
-/cypress/plugins/screenshots
-
-# Ignorar todos los archivos Cypress excepto los tests en JS y JSON en fixtures
-/cypress/*
-!/cypress/**/*.js
-!/cypress/fixtures/**/*.json
+# Cypress
+!/cypress/*
+!/cypress/e2e
+!/cypress/fixtures
+!/cypress/support
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -153,4 +148,7 @@ fabric.properties
 hs_err_pid*
 replay_pid*
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,java
+# End of https://www.toptal.com/developers/gitignore/api/intellij,javaCypress/node_modules/
+Cypress/package-lock.json
+Cypress/package.json
+Cypress/node_modules
